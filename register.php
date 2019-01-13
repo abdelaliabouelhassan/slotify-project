@@ -1,14 +1,18 @@
 <?php
+include('includes/classes/account.php');
+$account=new account();
+include('includes/classes/constants.php');
 include('includes/handlers/register_handler.php');
+include('includes/handlers/login_handler.php');
 
 
-
-
-
+function htafdbvariable($vai){
+         if(isset($_POST[$vai])){
+                  echo $_POST[$vai];
+         }
+}
 
 ?>
-
-
 
 <!DOCTYPE html>
 <html>
@@ -41,16 +45,40 @@ include('includes/handlers/register_handler.php');
       
       <form action="register.php" id="registerform" method="POST">
              <h2>create your free account</h2>
+             <?php
+                  echo $account->khodlerror(constants::$usernameerr);
+             ?>
             <label for="username">username</label>
-            <input type="text" id="username" name="username" placeholder="e.g. bartSimpson" required><br><br>
+            <input type="text" id="username" name="username" placeholder="e.g. bartSimpson" value="<?php htafdbvariable('username'); ?>" required><br><br>
+            <?php
+                  echo $account->khodlerror(constants::$firstnameerr);
+             ?>
             <label for="firsname">First name</label>
-            <input type="text" id="firsname" name="firsname" placeholder="e.g. Bart" required><br><br>
+            <input type="text" id="firsname" name="firsname" placeholder="e.g. Bart"  value="<?php htafdbvariable('firsname'); ?>" required><br><br>
+            <?php
+                  echo $account->khodlerror(constants::$lastnameerr);
+             ?>
             <label for="lastname">Last name</label>
-            <input type="text" id="lastname" name="lastname" placeholder="e.g. Simpson" required><br><br>
+            <input type="text" id="lastname" name="lastname" placeholder="e.g. Simpson" value="<?php htafdbvariable('lastname'); ?>"  required><br><br>
+            <?php
+                  echo $account->khodlerror(constants::$emaildontmatch);
+             ?>
+             <?php
+                  echo $account->khodlerror(constants::$emailinva);
+             ?>
             <label for="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="e.g. bart@gmail.com" required><br><br>
+            <input type="email" id="email" name="email" placeholder="e.g. bart@gmail.com" value="<?php htafdbvariable('email'); ?>"  required><br><br>
             <label for="email2">Confirm Email</label>
-            <input type="email" id="email2" name="email2" placeholder="e.g. bart@gmail.com" required><br><br>
+            <input type="email" id="email2" name="email2" placeholder="e.g. bart@gmail.com" value="<?php htafdbvariable('email2'); ?>" required><br><br>
+            <?php
+                  echo $account->khodlerror(constants::$pasworddontmatch);
+             ?>
+             <?php
+                  echo $account->khodlerror(constants::$passwordcont);
+             ?>
+             <?php
+                  echo $account->khodlerror(constants::$passwordbet);
+             ?>
             <label for="password">password</label>
             <input type="password" name="password" id="password"  required><br><br>
             <label for="password2">Confirm password</label>
