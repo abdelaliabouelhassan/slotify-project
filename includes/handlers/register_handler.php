@@ -37,7 +37,8 @@ $firstname=_machi3adiya($_POST['firsname']);
 
   $lakanregisetsda9=$account->register($username,$firstname,$lastname,$email,$email2,$password,$password2);
        if($lakanregisetsda9==true){
-            header('Location:../index.php');
+        $_SESSION['userLoggedIn'] = $username;
+            header("Location: index.php");
        }
 }
 

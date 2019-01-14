@@ -1,12 +1,32 @@
 <?php
     class account {
-
+     private $con;   
      private $errorarray;
 
 
-         public function __construct(){
+         public function __construct($con){
+             $this->con=$con;
           $this->errorarray=array();
          }
+
+         /////function dyal login
+
+
+         public function login($us,$pw) {
+                
+            $pw=md5($pw);
+            $log=mysqli_query($this->con, "SELECT * FROM users WHERE username='$us' AND password='$pw'");
+
+            if(mysqli_num_rows($log) == 1){
+            return true;
+            }
+            else{
+            array_push($this->errorarray,constants::$logineror);
+                return false;
+            }
+
+            }
+
 
 
          public function register($us,$fs,$ls,$em,$em2,$pw,$pw2){
@@ -22,7 +42,7 @@
          if(empty($this->errorarray)==true){
            //nsift lvariables l database
                    
-            return true;
+            return  $this->n3amrVariableLdataBase($us,$fs,$ls,$em,$pw);
          }
          else{
              ///lamakanch true mghayw93 walo
@@ -31,7 +51,29 @@
 
          }
 
+private function n3amrVariableLdataBase($us,$fs,$ls,$em,$pw){
+           
+            $tachfirLpassword=md5($pw);//tachfir l password
+            $rand = rand(1, 6); ////kan3ti ra9m 3achwa2y mn 1 tal 6
+            if($rand == 1)
+                $profile_pic = "assets/images/profile_pics/head_carrot.png";
+            else if($rand == 2)
+                $profile_pic = "assets/images/profile_pics/head_emerald.png";
+            else if($rand == 3)
+                $profile_pic = "assets/images/profile_pics/head_pete_river.png";
+            else if($rand == 4)
+                $profile_pic = "assets/images/profile_pics/head_red.png";
+            else if($rand == 5)
+                $profile_pic = "assets/images/profile_pics/head_sun_flower.png";
+            else if($rand == 6)
+                $profile_pic = "assets/images/profile_pics/head_wisteria.png";
+            $date=date("Y-m-d");
+            
+            $natija= mysqli_query($this->con,"INSERT INTO users VALUES ('','$us','$fs','$ls','$em','$tachfirLpassword','$date','$profile_pic')");
 
+
+              return $natija;
+}
                 ///dala dyal erromsg
 
 
@@ -53,6 +95,11 @@
 
 
                 ///todo:lakan username deja kayn
+                $ta2akod_Mn_username_Wach_Deja_Kayn=mysqli_query($this->con,"SELECT email FROM users WHERE username='$us'");
+                if(mysqli_num_rows($ta2akod_Mn_username_Wach_Deja_Kayn)!=0){
+                    array_push($this->errorarray,constants::$usernamealrdy);
+               }
+
 
         }
 
@@ -61,6 +108,7 @@
             if(strlen($fs)>25 ||strlen($fs)<5){
                 array_push($this->errorarray,constants::$firstnameerr);
                 return;
+                
              }
         }
         private  function taha9o9mnlastname($ls){
@@ -81,7 +129,10 @@
 
                 //TODO: lakan email deja kayn
 
-
+               $ta2akod_Mn_Email_Wach_Deja_Kayn=mysqli_query($this->con,"SELECT email FROM users WHERE email='$em'");
+               if(mysqli_num_rows($ta2akod_Mn_Email_Wach_Deja_Kayn)!=0){
+                    array_push($this->errorarray,constants::$emaimalrdy);
+               }
         }
         private function taha9o9mnpassword($pw,$pw2){
                 if($pw!=$pw2){
@@ -92,13 +143,20 @@
                  array_push($this->errorarray,constants::$passwordcont);
                  return;
                 }
-                if($pw<5 || $pw>30){
+                if(strlen($pw)<5 || strlen($pw)>30){
                       array_push($this->errorarray,constants::$passwordbet);
                       return;
                 }
         }
 
     }
+
+
+
+
+
+
+
 
 
 

@@ -1,11 +1,12 @@
 <?php
+include('includes/config.php');
 include('includes/classes/account.php');
-$account=new account();
+$account=new account($con);
 include('includes/classes/constants.php');
 include('includes/handlers/register_handler.php');
 include('includes/handlers/login_handler.php');
 
-
+///function kat tkhali liya dakchi lidakhl l user ib9a f blasto lakan 3ando chi ghalat
 function htafdbvariable($vai){
          if(isset($_POST[$vai])){
                   echo $_POST[$vai];
@@ -30,6 +31,9 @@ function htafdbvariable($vai){
         
       <form action="register.php" id="loginform" method="POST">
              <h2>Login your account</h2>
+             <?php
+                  echo $account->khodlerror(constants::$logineror);
+             ?>
       <label for="loginusername">username</label>
             <input type="text" id="logingusername" name="logingusername" placeholder="e.g. bartSimpson" required><br><br>
             <label for="password">password</label>
@@ -48,6 +52,9 @@ function htafdbvariable($vai){
              <?php
                   echo $account->khodlerror(constants::$usernameerr);
              ?>
+              <?php
+                  echo $account->khodlerror(constants::$usernamealrdy);
+             ?>
             <label for="username">username</label>
             <input type="text" id="username" name="username" placeholder="e.g. bartSimpson" value="<?php htafdbvariable('username'); ?>" required><br><br>
             <?php
@@ -65,6 +72,9 @@ function htafdbvariable($vai){
              ?>
              <?php
                   echo $account->khodlerror(constants::$emailinva);
+             ?>
+             <?php
+                  echo $account->khodlerror(constants::$emaimalrdy);
              ?>
             <label for="email">Email</label>
             <input type="email" id="email" name="email" placeholder="e.g. bart@gmail.com" value="<?php htafdbvariable('email'); ?>"  required><br><br>
