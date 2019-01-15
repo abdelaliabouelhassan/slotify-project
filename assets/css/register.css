@@ -1,0 +1,136 @@
+html,body{
+    padding: 0;
+    margin: 0;
+    height: 100%;
+}
+
+#background{
+    background-color: #000000;
+    background-image: url('../images/bg.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    display: table;
+    height: 100%;
+    width: 100%;
+   
+}
+#logincont *{
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: normal;
+  line-height: 1em;
+  box-sizing: border-box;
+}
+#logincont *{
+    
+    margin: 0 auto;
+    position: relative;
+    max-width: 1024px;
+}
+.inputContainer{
+    padding: 50px;
+    width:400px;
+    float:left;
+    border-right:1px solid #999;
+ 
+ }
+ ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:    #ffffff;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    #ffffff;
+   opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    #ffffff;
+   opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color:    #ffffff;
+}
+::-ms-input-placeholder { /* Microsoft Edge */
+   color:    #ffffff;
+}
+
+::placeholder { /* Most modern browsers support this now. */
+   color:    #ffffff;
+}
+ .inputContainer h2{
+     text-align: center;
+     padding-bottom: 10px;
+     padding-top: 10px;
+ }
+ .inputContainer input[type="text"],
+ .inputContainer input[type="email"],
+ .inputContainer input[type="password"]{
+
+   display:block;
+   background-color:transparent;
+   border:0;
+   border-bottom:1px solid #ffffff;
+   height:27px;
+   line-height: 27px;
+   width: 100%;
+
+ }
+
+ .inputContainer label{
+    color: #a0a0a0 !important;
+    font-size: 15px;
+    margin-top: 15px !important;
+    display: block;
+}
+.inputContainer button{
+    background-color: transparent;
+    border: 2px solid #ffffff;
+    border-radius: 250px;
+    color: #ffffff;
+    display: block;
+    font-size: 14px;
+    letter-spacing: 2px;
+    margin: 20px auto;
+    height: 41px;
+    width: 100%;
+}
+.inputContainer button:hover{
+    cursor: pointer;
+}
+.so2al span{
+font-weight: bold;
+/* margin-top: 20px; */
+font-size: 12px;
+top: 5px;
+cursor: pointer;
+}
+
+
+.so2al{
+    text-align: center
+}
+
+#registerform,#loginform{
+    display: none;
+}
+
+.logintext{
+    padding: 45px;
+    display: table-cell;
+}
+.logintext h1{
+    font-size: 60px;
+    font-weight: bold;
+    color: #4df34d !important;
+}
+.logintext h2{
+    margin: 50px 0px !important;
+    font-size: 33px !important;
+}
+.logintext ul{
+    padding: 0px;
+}
+.logintext li{
+    font-size: 22px;
+    list-style-type: none;
+    padding: 12px 52px;
+    background: url('../images/icons/check1.png') no-repeat;
+}

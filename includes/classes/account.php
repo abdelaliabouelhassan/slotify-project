@@ -81,7 +81,10 @@ private function n3amrVariableLdataBase($us,$fs,$ls,$em,$pw){
                     if(!in_array($error,$this->errorarray)){
                             $error="";
                     }
-                    return "<span class'errormsg'>$error</span>";
+                    return "<span class'errormsg' style='
+                    color: #4df34d;
+                    font-size: 17px;
+                    display: block;'>$error</span>";
                 }
 
 
