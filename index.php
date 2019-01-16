@@ -22,8 +22,26 @@ else {
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
 </head>
 <body>
-    
-         <div id="nowPlayBarConti">
+     <div id="maincontiner">
+
+
+           <div id="topcontiner">
+                       
+                          <div id="navbarcontiner">
+
+
+                          </div>
+
+           </div>
+
+
+
+
+
+
+
+
+            <div id="nowPlayBarConti">
                    
 
                      <div id="nowPlayBar">
@@ -116,7 +134,7 @@ else {
               
          </div>
 
-
-
+     </div>
+         
 </body>
 </html>

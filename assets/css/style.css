@@ -1,3 +1,7 @@
+/*************************************************************************/
+/*****playbar*****************/
+
+
 html,body{
     height: 100%;
     padding: 0;
@@ -132,3 +136,20 @@ vertical-align: middle;
 .volumeBar .progressBar{
     width: 125px;
 }
+
+/*************************************************************************************/
+
+#topcontiner{
+    height: 100%;
+    width: 100%;
+}
+#navbarcontiner{
+    width: 220px;
+    height: 100vh;
+    background-color: #000000;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+
